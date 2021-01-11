@@ -36,34 +36,44 @@ class SetupViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.addSubview(segmentControl)
         return cell
         }
+        
+        
         return cell
     }
+    // #TODO: stexcel Guyneri Cank
+    let colorArray:[UIColor] = [.black,.green,.white]
+    //#TODO: cuyc Tal guyneri canky
+    
+    // #TODO: hishel Guyny u poxel bolor controllerneri guyny
     
     @objc func changeColor(sender: UISegmentedControl) {
 //        let naxordViewController = ViewController()
 //        let khmberViewController = KhmberViewController()
+        var color = UIColor()
         switch sender.selectedSegmentIndex {
         case 0:
             view.backgroundColor = #colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1)
             allAnkapLable.backgroundColor = #colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1)
             setupTableView.backgroundColor = #colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1)
-            
+            color = #colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1)
         case 1:
              
             view.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             allAnkapLable.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             setupTableView.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-            
+            color = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
 
         case 2:
             view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+            color = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
             allAnkapLable.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             setupTableView.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-
+            
         default:
             print("ok")
         }
-        
+        UserDefaults.standard.setColor(color: color, forKey: "colorKey")
+
     }
     
     
@@ -108,3 +118,32 @@ class SetupViewController: UIViewController, UITableViewDataSource, UITableViewD
     */
 
 }
+extension UserDefaults {
+  func colorForKey(key: String) -> UIColor? {
+    var colorReturnded: UIColor?
+    if let colorData = data(forKey: key) {
+      do {
+        if let color = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(colorData) as? UIColor {
+          colorReturnded = color
+        }
+      } catch {
+        print("Error UserDefaults")
+      }
+    }
+    return colorReturnded
+  }
+  
+  func setColor(color: UIColor?, forKey key: String) {
+    var colorData: NSData?
+    if let color = color {
+      do {
+        let data = try NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: false) as NSData?
+        colorData = data
+      } catch {
+        print("Error UserDefaults")
+      }
+    }
+    set(colorData, forKey: key)
+  }
+}
+

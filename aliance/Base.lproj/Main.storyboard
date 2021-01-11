@@ -146,7 +146,7 @@
             </objects>
             <point key="canvasLocation" x="614.49275362318849" y="834.375"/>
         </scene>
-        <!--SETUP-->
+        <!--SETINGS-->
         <scene sceneID="UYL-cD-inu">
             <objects>
                 <viewController id="zeA-iF-YXb" customClass="SetupViewController" customModule="aliance" customModuleProvider="target" sceneMemberID="viewController">
@@ -181,7 +181,7 @@
                         <viewLayoutGuide key="safeArea" id="Kx8-Qk-8RD"/>
                         <color key="backgroundColor" red="0.99013154247804402" green="0.67104968264646114" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="SETUP" id="bFk-MP-nP3"/>
+                    <navigationItem key="navigationItem" title="SETINGS" id="bFk-MP-nP3"/>
                     <connections>
                         <outlet property="allAnkapLable" destination="Jri-sF-8L3" id="ISm-JP-DUh"/>
                         <outlet property="setupTableView" destination="Qta-NC-jcA" id="AWE-T1-D6H"/>

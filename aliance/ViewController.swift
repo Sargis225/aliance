@@ -17,6 +17,9 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        if let color = UserDefaults.standard.colorForKey(key: "colorKey") {
+            self.view.backgroundColor = color
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
