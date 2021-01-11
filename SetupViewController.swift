@@ -44,7 +44,7 @@ class SetupViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     let colorArray:[UIColor] = [.black,.green,.white]
     
-   
+   // change himnakan
     
     
 //    @objc func changeColor(sender: UISegmentedControl) {
