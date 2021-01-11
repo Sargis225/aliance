@@ -9,7 +9,7 @@ import UIKit
 
 class SetupViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return colorArray.count
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -18,76 +18,76 @@ class SetupViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let ident = "cellIdentifier"
         let cell = tableView.dequeueReusableCell(withIdentifier: ident) as! MyTableViewCell
-        cell.backgroundColor = #colorLiteral(red: 0.7753943248, green: 0.9764705896, blue: 0.9551795097, alpha: 1)
-       if indexPath.row == 0 {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "clip-transparent-download-and-brush-line-art-free-clip-paint-palette-clipart-11563244939gsykmaqt2d"))
-        imageView.frame = CGRect(x: 0, y: 0, width: 40, height: cell.frame.height)
-        cell.addSubview(imageView)
-        cell.textLabel?.textAlignment = .center
-        cell.textLabel?.text = "etnaguyn"
-        let items = ["gunavor","mug","non"]
-       let  segmentControl = UISegmentedControl(items: items)
-        segmentControl.frame = CGRect(x: 60, y: 0, width: cell.frame.width - 70, height: cell.frame.height)
-        segmentControl.actionForSegment(at: 3)
-        segmentControl.backgroundColor = .white
-        segmentControl.selectedSegmentIndex = 0
-        print(segmentControl.selectedSegmentIndex)
-        segmentControl.addTarget(self, action: #selector(changeColor), for: .valueChanged)
-        cell.addSubview(segmentControl)
-        return cell
-        }
+//        cell.backgroundColor = #colorLiteral(red: 0.7753943248, green: 0.9764705896, blue: 0.9551795097, alpha: 1)
+        cell.backgroundColor = colorArray[indexPath.row]
+//       if indexPath.row == 0 {
+//        let imageView = UIImageView(image: #imageLiteral(resourceName: "clip-transparent-download-and-brush-line-art-free-clip-paint-palette-clipart-11563244939gsykmaqt2d"))
+//        imageView.frame = CGRect(x: 0, y: 0, width: 40, height: cell.frame.height)
+//        cell.addSubview(imageView)
+//        cell.textLabel?.textAlignment = .center
+//        cell.textLabel?.text = "etnaguyn"
+//        let items = ["gunavor","mug","non"]
+//       let  segmentControl = UISegmentedControl(items: items)
+//        segmentControl.frame = CGRect(x: 60, y: 0, width: cell.frame.width - 70, height: cell.frame.height)
+//        segmentControl.actionForSegment(at: 3)
+//        segmentControl.backgroundColor = .white
+//        segmentControl.selectedSegmentIndex = 0
+//        print(segmentControl.selectedSegmentIndex)
+//        segmentControl.addTarget(self, action: #selector(changeColor), for: .valueChanged)
+//        cell.addSubview(segmentControl)
+//        return cell
+//        }
         
         
         return cell
     }
-    // #TODO: stexcel Guyneri Cank
+    
     let colorArray:[UIColor] = [.black,.green,.white]
-    //#TODO: cuyc Tal guyneri canky
     
-    // #TODO: hishel Guyny u poxel bolor controllerneri guyny
-    
-    // waiting update from branch
+   
     
     
-    @objc func changeColor(sender: UISegmentedControl) {
-//        let naxordViewController = ViewController()
-//        let khmberViewController = KhmberViewController()
-        var color = UIColor()
-        switch sender.selectedSegmentIndex {
-        case 0:
-            view.backgroundColor = #colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1)
-            allAnkapLable.backgroundColor = #colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1)
-            setupTableView.backgroundColor = #colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1)
-            color = #colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1)
-        case 1:
-             
-            view.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-            allAnkapLable.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-            setupTableView.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-            color = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-
-        case 2:
-            view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-            color = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-            allAnkapLable.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-            setupTableView.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-            
-        default:
-            print("ok")
-        }
-        UserDefaults.standard.setColor(color: color, forKey: "colorKey")
-
-    }
+//    @objc func changeColor(sender: UISegmentedControl) {
+////        let naxordViewController = ViewController()
+////        let khmberViewController = KhmberViewController()
+//        var color = UIColor()
+//        switch sender.selectedSegmentIndex {
+//        case 0:
+//            view.backgroundColor = #colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1)
+//            allAnkapLable.backgroundColor = #colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1)
+//            setupTableView.backgroundColor = #colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1)
+//            color = #colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1)
+//        case 1:
+//
+//            view.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+//            allAnkapLable.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+//            setupTableView.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+//            color = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+//
+//        case 2:
+//            view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+//            color = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+//            allAnkapLable.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+//            setupTableView.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+//
+//        default:
+//            print("ok")
+//        }
+//        UserDefaults.standard.setColor(color: color, forKey: "colorKey")
+//
+//    }
     
     
 
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            
-        }
-        print(indexPath.row)
+        let color = colorArray[indexPath.row]
+        allAnkapLable.backgroundColor = color
+        setupTableView.backgroundColor = color
+        view.backgroundColor = color
+        UserDefaults.standard.setColor(color: color, forKey: "colorKey")
+//        print(indexPath.row)
     }
     
 
