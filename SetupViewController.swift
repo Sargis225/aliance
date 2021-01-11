@@ -44,8 +44,11 @@ class SetupViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     let colorArray:[UIColor] = [.black,.green,.white]
     
+   // change from other comp
+    
    // change himnakan
     
+    // finish my work Other comp
     
 //    @objc func changeColor(sender: UISegmentedControl) {
 ////        let naxordViewController = ViewController()
