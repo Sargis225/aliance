@@ -15,6 +15,9 @@
 		52C59C3F25AA01FF00F39A11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C59C3D25AA01FF00F39A11 /* LaunchScreen.storyboard */; };
 		52C59C4A25AA01FF00F39A11 /* alianceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C59C4925AA01FF00F39A11 /* alianceTests.swift */; };
 		52C59C5525AA01FF00F39A11 /* alianceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C59C5425AA01FF00F39A11 /* alianceUITests.swift */; };
+		52C59C6625AA0B2B00F39A11 /* KhmberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C59C6525AA0B2B00F39A11 /* KhmberViewController.swift */; };
+		52C59C6B25AA20F000F39A11 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C59C6A25AA20F000F39A11 /* SetupViewController.swift */; };
+		52C59C7025AA474D00F39A11 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C59C6F25AA474D00F39A11 /* MyTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		52C59C5025AA01FF00F39A11 /* alianceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = alianceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C59C5425AA01FF00F39A11 /* alianceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alianceUITests.swift; sourceTree = "<group>"; };
 		52C59C5625AA01FF00F39A11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52C59C6525AA0B2B00F39A11 /* KhmberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KhmberViewController.swift; sourceTree = "<group>"; };
+		52C59C6A25AA20F000F39A11 /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
+		52C59C6F25AA474D00F39A11 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,8 @@
 		52C59C2625AA01FE00F39A11 = {
 			isa = PBXGroup;
 			children = (
+				52C59C6A25AA20F000F39A11 /* SetupViewController.swift */,
+				52C59C6F25AA474D00F39A11 /* MyTableViewCell.swift */,
 				52C59C3125AA01FE00F39A11 /* aliance */,
 				52C59C4825AA01FF00F39A11 /* alianceTests */,
 				52C59C5325AA01FF00F39A11 /* alianceUITests */,
@@ -103,6 +111,7 @@
 				52C59C3425AA01FE00F39A11 /* SceneDelegate.swift */,
 				52C59C3625AA01FE00F39A11 /* ViewController.swift */,
 				52C59C3825AA01FE00F39A11 /* Main.storyboard */,
+				52C59C6525AA0B2B00F39A11 /* KhmberViewController.swift */,
 				52C59C3B25AA01FF00F39A11 /* Assets.xcassets */,
 				52C59C3D25AA01FF00F39A11 /* LaunchScreen.storyboard */,
 				52C59C4025AA01FF00F39A11 /* Info.plist */,
@@ -259,8 +268,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				52C59C3725AA01FE00F39A11 /* ViewController.swift in Sources */,
+				52C59C6625AA0B2B00F39A11 /* KhmberViewController.swift in Sources */,
 				52C59C3325AA01FE00F39A11 /* AppDelegate.swift in Sources */,
 				52C59C3525AA01FE00F39A11 /* SceneDelegate.swift in Sources */,
+				52C59C6B25AA20F000F39A11 /* SetupViewController.swift in Sources */,
+				52C59C7025AA474D00F39A11 /* MyTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
