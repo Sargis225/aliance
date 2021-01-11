@@ -46,6 +46,7 @@ class SetupViewController: UIViewController, UITableViewDataSource, UITableViewD
     
    // change from other comp
     
+   // change himnakan
     
     
 //    @objc func changeColor(sender: UISegmentedControl) {
