@@ -46,6 +46,9 @@ class SetupViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     // #TODO: hishel Guyny u poxel bolor controllerneri guyny
     
+    // waiting update from branch
+    
+    
     @objc func changeColor(sender: UISegmentedControl) {
 //        let naxordViewController = ViewController()
 //        let khmberViewController = KhmberViewController()
