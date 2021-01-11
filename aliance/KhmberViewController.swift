@@ -12,17 +12,53 @@ class KhmberViewController: UIViewController {
     @IBOutlet var teamPlus: UIButton!
     @IBOutlet var teamOne: UIButton!
     @IBOutlet var teamTow: UIButton!
+    @IBOutlet var teamsLabel: UILabel!
+    @IBOutlet var gameTimeLabel: UILabel!
+    @IBOutlet var gameMaximumPointsLabel: UILabel!
+    
     var distance:CGFloat = 10
     var key = 0
     var teamArray:[UIButton] = []
     var deleteTeamButtonArrray:[UIButton] = []
-
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let langueage = UserDefaults.standard.string(forKey: "languageKey")
+        switch langueage {
+        case "Հայերեն":
+            teamOne.setTitle("Թիմ 1", for: .normal)
+            teamTow.setTitle("Թիմ 2", for: .normal)
+            startButton.setTitle("Սկսել", for: .normal)
+            teamsLabel.text = "Խմբեր"
+            gameTimeLabel.text = "Խաղի ժամանակը \(UserDefaults.standard.string(forKey: "timeIntervalKey") ?? "") վարկյան"
+        case "English":
+            teamOne.setTitle("Group 1", for: .normal)
+            teamTow.setTitle("Group 2", for: .normal)
+            startButton.setTitle("Start", for: .normal)
+            teamsLabel.text = "Groups"
+            gameTimeLabel.text = "Game time \(UserDefaults.standard.string(forKey: "timeIntervalKey") ?? "") second"
+        case "Русский":
+            teamOne.setTitle("Команда 1", for: .normal)
+            teamTow.setTitle("Команда 2", for: .normal)
+            startButton.setTitle("НАЧАТЬ", for: .normal)
+            teamsLabel.text = "Команды"
+            gameTimeLabel.text = "Время игры \(UserDefaults.standard.string(forKey: "timeIntervalKey") ?? "") секунда"
+        default:
+            print("ok")
+        }
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         teamOne.layer.cornerRadius = 20
         teamTow.layer.cornerRadius = 20
         teamPlus.layer.cornerRadius = 10
         startButton.layer.cornerRadius = 50
+        
+        if let color = UserDefaults.standard.colorForKey(key: "colorKey") {
+            self.view.backgroundColor = color
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -56,8 +92,19 @@ class KhmberViewController: UIViewController {
         deleteTeamButton.titleLabel?.textAlignment = .center
         deleteTeamButton.titleLabel?.font = (UIFont.boldSystemFont(ofSize: 37))
         deleteTeamButton.addTarget(nil, action: #selector(deleteNewTeams), for: .touchUpInside)
-//        image?.accessibilityFrame = deleteTeamButton.frame
-//        deleteTeamButton.setBackgroundImage(image, for: .normal)
+        
+        let langueage = UserDefaults.standard.string(forKey: "languageKey")
+        switch langueage {
+        case "Հայերեն":
+            newTeam.setTitle("Թիմ 3", for:.normal)
+
+        case "English":
+            newTeam.setTitle("Group 3", for:.normal)
+        case "Русский":
+            newTeam.setTitle("Команда 3", for:.normal)
+        default:
+            print("ok")
+        }
         view.addSubview(deleteTeamButton)
         deleteTeamButtonArrray.append(deleteTeamButton)
         distance = 2 * distance + teamTow.frame.height
@@ -65,12 +112,20 @@ class KhmberViewController: UIViewController {
         if key == 2 {
             newTeam.titleLabel?.font = (UIFont.boldSystemFont(ofSize: 42))
             newTeam.setTitle("Թիմ 4", for:.normal)
+            let langueage = UserDefaults.standard.string(forKey: "languageKey")
+            switch langueage {
+            case "Հայերեն":
+                newTeam.setTitle("Թիմ 4", for:.normal)
+
+            case "English":
+                newTeam.setTitle("Group 4", for:.normal)
+            case "Русский":
+                newTeam.setTitle("Команда 4", for:.normal)
+            default:
+                print("ok")
+            }
         }
-       
     }
-    
-    
-    
     
     @objc func deleteNewTeams(_ sender:UIButton) {
         let tvyalEllement = deleteTeamButtonArrray.firstIndex(of: sender)!

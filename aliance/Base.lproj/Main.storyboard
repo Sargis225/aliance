@@ -20,31 +20,23 @@
                                 <rect key="frame" x="140" y="180" width="135" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NCD-hN-qUM">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NCD-hN-qUM">
                                 <rect key="frame" x="105" y="426" width="204" height="113"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.20925042839444263" blue="0.83146324349778644" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Խաղալ">
-                                            <attributes>
-                                                <font key="NSFont" size="32" name="NotoSansArmenian-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
+                                <fontDescription key="fontDescription" name="NotoSansArmenian-Regular" family="Noto Sans Armenian" pointSize="32"/>
+                                <state key="normal" title="Խաղալ"/>
                                 <connections>
                                     <action selector="playButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lv6-10-qcy"/>
                                     <segue destination="tf9-iO-3dB" kind="show" id="q1s-hF-iUF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxs-aC-oUc">
-                                <rect key="frame" x="320" y="95" width="62" height="44"/>
+                                <rect key="frame" x="233" y="95" width="172" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.7956949812657087" blue="0.11202383280645967" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="SETUP"/>
+                                <state key="normal" title="Կարգավորումներ"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <integer key="value" value="20"/>
@@ -128,18 +120,36 @@
                                 </state>
                                 <connections>
                                     <action selector="startButton:" destination="tf9-iO-3dB" eventType="touchUpInside" id="Xg6-kt-EwD"/>
+                                    <action selector="startButtonPressed:" destination="tf9-iO-3dB" eventType="touchUpInside" id="1OD-U8-pmP"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Poz-K1-9zm">
+                                <rect key="frame" x="36" y="497" width="352" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <color key="textColor" systemColor="systemYellowColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y6B-C8-LS4">
+                                <rect key="frame" x="36" y="548" width="358" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="47J-lX-uR4"/>
                         <color key="backgroundColor" red="1" green="0.20925042839999999" blue="0.8314632435" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="hcz-WE-elf"/>
                     <connections>
+                        <outlet property="gameMaximumPointsLabel" destination="Y6B-C8-LS4" id="RCP-sy-GIT"/>
+                        <outlet property="gameTimeLabel" destination="Poz-K1-9zm" id="SWT-dz-v79"/>
                         <outlet property="startButton" destination="cUg-dn-vED" id="C9d-Rz-XTC"/>
                         <outlet property="teamOne" destination="WUC-WS-r8Z" id="cmZ-03-2NK"/>
                         <outlet property="teamPlus" destination="lcW-ex-fGU" id="i5B-ea-yZb"/>
                         <outlet property="teamTow" destination="ybN-Q3-PE8" id="Ecn-Cd-Fmp"/>
+                        <outlet property="teamsLabel" destination="70f-Fi-MID" id="HLq-7Y-baT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dhs-fQ-DdK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -155,39 +165,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qta-NC-jcA">
-                                <rect key="frame" x="20" y="141" width="374" height="639"/>
+                                <rect key="frame" x="20" y="137" width="374" height="639"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="Afi-vG-kbT">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="68"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="49"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="select color" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nkf-Vp-4py">
-                                            <rect key="frame" x="49" y="12" width="258" height="44"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ընտրեք Գույնը" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nkf-Vp-4py">
+                                            <rect key="frame" x="49" y="12" width="258" height="28"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="backgroundColor" systemColor="systemGray2Color"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellIdentifier" id="8nF-DT-PqA" customClass="MyTableViewCell" customModule="aliance" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="96" width="374" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellIdentifier" rowHeight="55" id="8nF-DT-PqA" customClass="MyTableViewCell" customModule="aliance" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="77" width="374" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8nF-DT-PqA" id="8WS-J7-Gvz">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ALL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jri-sF-8L3">
-                                <rect key="frame" x="111" y="104" width="192" height="31"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Բոլոր Կարգավորումները" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jri-sF-8L3">
+                                <rect key="frame" x="20" y="104" width="374" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.79569498130000005" blue="0.1120238328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="textColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -198,6 +208,7 @@
                     <navigationItem key="navigationItem" title="SETINGS" id="bFk-MP-nP3"/>
                     <connections>
                         <outlet property="allAnkapLable" destination="Jri-sF-8L3" id="ISm-JP-DUh"/>
+                        <outlet property="selectColorLabel" destination="Nkf-Vp-4py" id="VRf-Pc-dZb"/>
                         <outlet property="setupTableView" destination="Qta-NC-jcA" id="AWE-T1-D6H"/>
                     </connections>
                 </viewController>
@@ -229,6 +240,9 @@
         <image name="unnamed" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

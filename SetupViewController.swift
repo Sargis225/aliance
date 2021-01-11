@@ -12,84 +12,89 @@ class SetupViewController: UIViewController, UITableViewDataSource, UITableViewD
         return colorArray.count
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let ident = "cellIdentifier"
         let cell = tableView.dequeueReusableCell(withIdentifier: ident) as! MyTableViewCell
-//        cell.backgroundColor = #colorLiteral(red: 0.7753943248, green: 0.9764705896, blue: 0.9551795097, alpha: 1)
-        cell.backgroundColor = colorArray[indexPath.row]
-//       if indexPath.row == 0 {
-//        let imageView = UIImageView(image: #imageLiteral(resourceName: "clip-transparent-download-and-brush-line-art-free-clip-paint-palette-clipart-11563244939gsykmaqt2d"))
-//        imageView.frame = CGRect(x: 0, y: 0, width: 40, height: cell.frame.height)
-//        cell.addSubview(imageView)
-//        cell.textLabel?.textAlignment = .center
-//        cell.textLabel?.text = "etnaguyn"
-//        let items = ["gunavor","mug","non"]
-//       let  segmentControl = UISegmentedControl(items: items)
-//        segmentControl.frame = CGRect(x: 60, y: 0, width: cell.frame.width - 70, height: cell.frame.height)
-//        segmentControl.actionForSegment(at: 3)
-//        segmentControl.backgroundColor = .white
-//        segmentControl.selectedSegmentIndex = 0
-//        print(segmentControl.selectedSegmentIndex)
-//        segmentControl.addTarget(self, action: #selector(changeColor), for: .valueChanged)
-//        cell.addSubview(segmentControl)
-//        return cell
-//        }
+        if indexPath.section == 0 {
         
-        
-        return cell
+            cell.backgroundColor = colorArray[indexPath.row]
+            return cell
+        }
+        if indexPath.section == 1 {
+            cell.textLabel?.text = language[indexPath.row]
+            cell.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+            return cell
+        }
+        if indexPath.section == 2 {
+            cell.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+            if indexPath.row == 1 {
+                let slider = UISlider(frame: CGRect(x: 10, y: 8, width: cell.frame.width - 80, height: 20))
+                slider.maximumValue = 100
+                slider.minimumValue = 30
+                slider.value = 60
+                cell.textLabel?.textAlignment = .right
+//                cell.textLabel?.text = String(Int(slider.value))
+                slider.addTarget(self, action: #selector(changeTime), for: .valueChanged)
+                cell.addSubview(slider)
+                
+            }
+            return cell
+        }
+       return cell
     }
     
-    let colorArray:[UIColor] = [.black,.green,.white]
+    @objc func changeTime (_ sender:UISlider) {
+        
+        let timeLabel = UILabel(frame: CGRect(x: sender.frame.origin.x + sender.frame.width + 8, y: sender.frame.origin.y * 49 , width: 30, height: 30))
+        timeLabel.layer.cornerRadius = 10
+        timeLabel.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        let value:Int = Int(sender.value)
+        timeLabel.text = String(value)
+        UserDefaults.standard.set(timeLabel.text ?? "",forKey: "timeIntervalKey")
+        setupTableView.addSubview(timeLabel)
+        
+    }
     
-   // change from other comp
-    
-   // change himnakan
-    
-    // finish my work Other comp
-    
-//    @objc func changeColor(sender: UISegmentedControl) {
-////        let naxordViewController = ViewController()
-////        let khmberViewController = KhmberViewController()
-//        var color = UIColor()
-//        switch sender.selectedSegmentIndex {
-//        case 0:
-//            view.backgroundColor = #colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1)
-//            allAnkapLable.backgroundColor = #colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1)
-//            setupTableView.backgroundColor = #colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1)
-//            color = #colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1)
-//        case 1:
-//
-//            view.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-//            allAnkapLable.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-//            setupTableView.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-//            color = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-//
-//        case 2:
-//            view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-//            color = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-//            allAnkapLable.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-//            setupTableView.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-//
-//        default:
-//            print("ok")
-//        }
-//        UserDefaults.standard.setColor(color: color, forKey: "colorKey")
-//
-//    }
-    
-    
-
-    
+    func updateLabels(uV: Float) {
+        let newValue = uV
+        if newValue != uV {
+            
+        }
+    }
+    let colorArray:[UIColor] = [#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1),#colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1)]
+    let language = ["Հայերեն","English","Русский"]
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let color = colorArray[indexPath.row]
-        allAnkapLable.backgroundColor = color
-        setupTableView.backgroundColor = color
-        view.backgroundColor = color
-        UserDefaults.standard.setColor(color: color, forKey: "colorKey")
+        if indexPath.section == 0 {
+            let color = colorArray[indexPath.row]
+            allAnkapLable.backgroundColor = color
+            view.backgroundColor = color
+            UserDefaults.standard.setColor(color: color, forKey: "colorKey")
+        }
+        if indexPath.section == 1{
+            UserDefaults.standard.set(language[indexPath.row],forKey: "languageKey")
+            switch indexPath.row {
+            case 0:
+                allAnkapLable.text = "Բոլոր Կարգավորումները"
+                selectColorLabel.text = "Ընտրեք Գույնը"
+            case 1:
+                allAnkapLable.text = "All settings"
+                selectColorLabel.text = "Select Color"
+            case 2:
+                allAnkapLable.text = "Общие настройки"
+                selectColorLabel.text = "Выбирайте цвет"
+            default:
+                print("lav klni")
+            }
+
+        }
+        
+        
+        
+        
 //        print(indexPath.row)
     }
     
@@ -98,15 +103,19 @@ class SetupViewController: UIViewController, UITableViewDataSource, UITableViewD
     
 
     
+    @IBOutlet var selectColorLabel: UILabel!
     @IBOutlet var allAnkapLable: UILabel!
     
     @IBOutlet var setupTableView: UITableView!
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupTableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         allAnkapLable.layer.cornerRadius = 20
-        setupTableView.backgroundColor = #colorLiteral(red: 1, green: 0.2092504284, blue: 0.8314632435, alpha: 1)
+        setupTableView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         setupTableView.dataSource = self
         setupTableView.delegate = self
         // Do any additional setup after loading the view.
