@@ -44,7 +44,8 @@ class SetupViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     let colorArray:[UIColor] = [.black,.green,.white]
     
-   
+   // change from other comp
+    
     
     
 //    @objc func changeColor(sender: UISegmentedControl) {
