@@ -32,18 +32,23 @@ class KhmberViewController: UIViewController {
             startButton.setTitle("Սկսել", for: .normal)
             teamsLabel.text = "Խմբեր"
             gameTimeLabel.text = "Խաղի ժամանակը \(UserDefaults.standard.string(forKey: "timeIntervalKey") ?? "") վարկյան"
+            gameMaximumPointsLabel.text = "Առավելագույն միավորը \(UserDefaults.standard.string(forKey: "maximumPointsKey") ?? "") "
         case "English":
             teamOne.setTitle("Group 1", for: .normal)
             teamTow.setTitle("Group 2", for: .normal)
             startButton.setTitle("Start", for: .normal)
             teamsLabel.text = "Groups"
             gameTimeLabel.text = "Game time \(UserDefaults.standard.string(forKey: "timeIntervalKey") ?? "") second"
+            gameMaximumPointsLabel.text = "Maximum points \(UserDefaults.standard.string(forKey: "maximumPointsKey") ?? "") "
+
         case "Русский":
             teamOne.setTitle("Команда 1", for: .normal)
             teamTow.setTitle("Команда 2", for: .normal)
             startButton.setTitle("НАЧАТЬ", for: .normal)
             teamsLabel.text = "Команды"
             gameTimeLabel.text = "Время игры \(UserDefaults.standard.string(forKey: "timeIntervalKey") ?? "") секунда"
+            gameMaximumPointsLabel.text = "Максимальное очков \(UserDefaults.standard.string(forKey: "maximumPointsKey") ?? "") "
+
         default:
             print("ok")
         }
@@ -97,7 +102,6 @@ class KhmberViewController: UIViewController {
         switch langueage {
         case "Հայերեն":
             newTeam.setTitle("Թիմ 3", for:.normal)
-
         case "English":
             newTeam.setTitle("Group 3", for:.normal)
         case "Русский":
@@ -138,13 +142,33 @@ class KhmberViewController: UIViewController {
     
     
     @objc func newTeamThreeFore(_ sender:UIButton) {
-        let alertController: UIAlertController = UIAlertController(title: "Փոխել թմի անունը", message: "", preferredStyle: .alert)
-        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
+        let langueage = UserDefaults.standard.string(forKey: "languageKey")
+        var massage = ""
+        var buttonCancelText = ""
+        var buttonRenameText = ""
+        switch langueage {
+        case "Հայերեն":
+            massage = "Փոխել թմի անունը"
+            buttonCancelText = "Չեղարկել"
+            buttonRenameText = "Փոխել"
+        case "English":
+           massage = "Change group name"
+           buttonCancelText = "Cancel"
+           buttonRenameText = "Rename"
+        case "Русский":
+            massage = "Изменить название группы"
+            buttonCancelText = "Отменить"
+            buttonRenameText = "Изменить"
+        default:
+            print("ok")
+        }
+        let alertController: UIAlertController = UIAlertController(title: massage, message: "", preferredStyle: .alert)
+        let cancelAction: UIAlertAction = UIAlertAction(title: buttonCancelText, style: .cancel) { action -> Void in
                 //cancel code
             }
         alertController.addAction(cancelAction)
         
-        let nextAction: UIAlertAction = UIAlertAction(title: "Rename", style: .default) { action -> Void in
+        let nextAction: UIAlertAction = UIAlertAction(title: buttonRenameText, style: .default) { action -> Void in
             let text = (alertController.textFields?.first as! UITextField).text
             sender.setTitle(text, for: .normal)
             }
@@ -162,14 +186,33 @@ class KhmberViewController: UIViewController {
     
     @IBAction func teamOnePressed(_ sender: UIButton) {
         //TODO:petqa nenc anenq vor inch vor ban baci karoxananq anuny poxel
-        
-        let alertController: UIAlertController = UIAlertController(title: "Փոխել թմի անունը", message: "", preferredStyle: .alert)
-        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
+        let langueage = UserDefaults.standard.string(forKey: "languageKey")
+        var massage = ""
+        var buttonCancelText = ""
+        var buttonRenameText = ""
+        switch langueage {
+        case "Հայերեն":
+            massage = "Փոխել թմի անունը"
+            buttonCancelText = "Չեղարկել"
+            buttonRenameText = "Փոխել"
+        case "English":
+           massage = "Change group name"
+           buttonCancelText = "Cancel"
+           buttonRenameText = "Rename"
+        case "Русский":
+            massage = "Изменить название группы"
+            buttonCancelText = "Отменить"
+            buttonRenameText = "Изменить"
+        default:
+            print("ok")
+        }
+        let alertController: UIAlertController = UIAlertController(title: massage, message: "", preferredStyle: .alert)
+        let cancelAction: UIAlertAction = UIAlertAction(title: buttonCancelText, style: .cancel) { action -> Void in
                 //cancel code
             }
         alertController.addAction(cancelAction)
         
-        let nextAction: UIAlertAction = UIAlertAction(title: "Rename", style: .default) { action -> Void in
+        let nextAction: UIAlertAction = UIAlertAction(title: buttonRenameText, style: .default) { action -> Void in
             let text = (alertController.textFields?.first as! UITextField).text
             self.teamOne.setTitle(text, for: .normal)
             }
@@ -188,14 +231,33 @@ class KhmberViewController: UIViewController {
     
     @IBAction func teamTowPressed(_ sender: UIButton) {
         //TODO:petqa nenc anenq vor inch vor ban baci karoxananq anuny poxel
-        
-        let alertController: UIAlertController = UIAlertController(title: "Փոխել թմի անունը", message: "", preferredStyle: .alert)
-        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
+        let langueage = UserDefaults.standard.string(forKey: "languageKey")
+        var massage = ""
+        var buttonCancelText = ""
+        var buttonRenameText = ""
+        switch langueage {
+        case "Հայերեն":
+            massage = "Փոխել թմի անունը"
+            buttonCancelText = "Չեղարկել"
+            buttonRenameText = "Փոխել"
+        case "English":
+           massage = "Change group name"
+           buttonCancelText = "Cancel"
+           buttonRenameText = "Rename"
+        case "Русский":
+            massage = "Изменить название группы"
+            buttonCancelText = "Отменить"
+            buttonRenameText = "Изменить"
+        default:
+            print("ok")
+        }
+        let alertController: UIAlertController = UIAlertController(title: massage, message: "", preferredStyle: .alert)
+        let cancelAction: UIAlertAction = UIAlertAction(title: buttonCancelText, style: .cancel) { action -> Void in
                 //cancel code
             }
         alertController.addAction(cancelAction)
         
-        let nextAction: UIAlertAction = UIAlertAction(title: "Rename", style: .default) { action -> Void in
+        let nextAction: UIAlertAction = UIAlertAction(title: buttonRenameText, style: .default) { action -> Void in
             let text = (alertController.textFields?.first as! UITextField).text
             self.teamTow.setTitle(text, for: .normal)
             }

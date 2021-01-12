@@ -30,34 +30,43 @@ class SetupViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
         if indexPath.section == 2 {
             cell.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-            if indexPath.row == 1 {
-                let slider = UISlider(frame: CGRect(x: 10, y: 18, width: cell.frame.width - 80, height: 20))
-                slider.maximumValue = 100
-                slider.minimumValue = 30
-                slider.value = 60
-                cell.textLabel?.textAlignment = .right
-//              cell.textLabel?.text = String(Int(slider.value))
-                
-                slider.addTarget(self, action: #selector(changeTime), for: .valueChanged)
-                cell.addSubview(slider)
-                
+
+            if indexPath.row == 0 {
+                cell.textLabel?.text = "Ընտրեք խաղի ժամանակահատվածը"
             }
+            if indexPath.row == 1 {
+                cell.textLabel?.text = "Ընտրեք առավելագույն միավորը"
+            }
+            
+            
+//            if indexPath.row == 0 {
+//                let slider = UISlider(frame: CGRect(x: 10, y: 18, width: cell.frame.width - 80, height: 20))
+//                slider.maximumValue = 100
+//                slider.minimumValue = 30
+//                slider.value = 60
+//                cell.textLabel?.textAlignment = .right
+////              cell.textLabel?.text = String(Int(slider.value))
+//
+//                slider.addTarget(self, action: #selector(changeTime), for: .valueChanged)
+//                cell.addSubview(slider)
+//
+//            }
             return cell
         }
        return cell
     }
     
-    @objc func changeTime (_ sender:UISlider) {
-        
-        let timeLabel = UILabel(frame: CGRect(x: sender.frame.origin.x + sender.frame.width + 15, y: sender.frame.height * 20 , width: 30, height: 30))
-        timeLabel.layer.cornerRadius = 10
-        timeLabel.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-        let value:Int = Int(sender.value)
-        timeLabel.text = String(value)
-        UserDefaults.standard.set(timeLabel.text ?? "",forKey: "timeIntervalKey")
-        setupTableView.addSubview(timeLabel)
-        
-    }
+//    @objc func changeTime (_ sender:UISlider) {
+//
+//        let timeLabel = UILabel(frame: CGRect(x: sender.frame.origin.x + sender.frame.width + 15, y: sender.frame.height * 20 , width: 30, height: 30))
+//        timeLabel.layer.cornerRadius = 10
+//        timeLabel.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+//        let value:Int = Int(sender.value)
+//        timeLabel.text = String(value)
+//        UserDefaults.standard.set(timeLabel.text ?? "",forKey: "timeIntervalKey")
+//        setupTableView.addSubview(timeLabel)
+//
+//    }
     
     func updateLabels(uV: Float) {
         let newValue = uV
@@ -75,26 +84,113 @@ class SetupViewController: UIViewController, UITableViewDataSource, UITableViewD
             view.backgroundColor = color
             UserDefaults.standard.setColor(color: color, forKey: "colorKey")
         }
+        
         if indexPath.section == 1{
             UserDefaults.standard.set(language[indexPath.row],forKey: "languageKey")
             switch indexPath.row {
             case 0:
                 allAnkapLable.text = "Բոլոր Կարգավորումները"
                 selectColorLabel.text = "Ընտրեք Գույնը"
+                tableView.cellForRow(at: [2,0])?.textLabel?.text = "Ընտրեք խաղի ժամանակահատվածը"
+                tableView.cellForRow(at: [2,1])?.textLabel?.text = "Ընտրեք առավելագույն միավորը"
+
+                print(indexPath)
             case 1:
                 allAnkapLable.text = "All settings"
                 selectColorLabel.text = "Select Color"
+                tableView.cellForRow(at: [2,0])?.textLabel?.text = "Select the game period"
+                tableView.cellForRow(at: [2,1])?.textLabel?.text = "Select the maximum score"
             case 2:
                 allAnkapLable.text = "Общие настройки"
                 selectColorLabel.text = "Выбирайте цвет"
+                tableView.cellForRow(at: [2,0])?.textLabel?.text = "Выбирайте время игры"
+                tableView.cellForRow(at: [2,1])?.textLabel?.text = "Выбирайте максимальный очков"
             default:
                 print("lav klni")
             }
-
         }
         
+        if indexPath.section == 2  && indexPath.row == 0 {
+            let langueage = UserDefaults.standard.string(forKey: "languageKey")
+            var massage = ""
+            var buttonCancelText = ""
+            var buttonRenameText = ""
+            switch langueage {
+            case "Հայերեն":
+                massage = "Ընտրեք խաղի ժամանակահատվածը"
+                buttonCancelText = "Չեղարկել"
+                buttonRenameText = "Փոխել"
+            case "English":
+               massage = "Select the game period"
+               buttonCancelText = "Cancel"
+               buttonRenameText = "Rename"
+            case "Русский":
+                massage = "Выбирайте время игры"
+                buttonCancelText = "Отменить"
+                buttonRenameText = "Изменить"
+            default:
+                print("ok")
+            }
+
+            let alertController: UIAlertController = UIAlertController(title: massage, message: "", preferredStyle: .alert)
+            let cancelAction: UIAlertAction = UIAlertAction(title: buttonCancelText, style: .cancel) { action -> Void in
+                    //cancel code
+                }
+            alertController.addAction(cancelAction)
+            
+            let nextAction: UIAlertAction = UIAlertAction(title: buttonRenameText, style: .default) { action -> Void in
+            let text = ((alertController.textFields?.first as! UITextField).text)!
+                UserDefaults.standard.set(text,forKey: "timeIntervalKey")
+                }
+            alertController.addAction(nextAction)
+                //Add text field
+            alertController.addTextField { (textField) -> Void in
+                    textField.textColor = UIColor.green
+                }
+                //Present the AlertController
+            present(alertController, animated: true, completion: nil)
+        }
         
-        
+        if indexPath.section == 2  && indexPath.row == 1 {
+            let langueage = UserDefaults.standard.string(forKey: "languageKey")
+            var massage = ""
+            var buttonCancelText = ""
+            var buttonRenameText = ""
+            switch langueage {
+            case "Հայերեն":
+                massage = "Ընտրեք առավելագույն միավորը"
+                buttonCancelText = "Չեղարկել"
+                buttonRenameText = "Փոխել"
+            case "English":
+               massage = "Select the maximum score"
+               buttonCancelText = "Cancel"
+               buttonRenameText = "Rename"
+            case "Русский":
+                massage = "Выбирайте максимальный очков"
+                buttonCancelText = "Отменить"
+                buttonRenameText = "Изменить"
+            default:
+                print("ok")
+            }
+
+            let alertController: UIAlertController = UIAlertController(title: massage, message: "", preferredStyle: .alert)
+            let cancelAction: UIAlertAction = UIAlertAction(title: buttonCancelText, style: .cancel) { action -> Void in
+                    //cancel code
+                }
+            alertController.addAction(cancelAction)
+            
+            let nextAction: UIAlertAction = UIAlertAction(title: buttonRenameText, style: .default) { action -> Void in
+            let text = ((alertController.textFields?.first as! UITextField).text)!
+                UserDefaults.standard.set(text,forKey: "maximumPointsKey")
+                }
+            alertController.addAction(nextAction)
+                //Add text field
+            alertController.addTextField { (textField) -> Void in
+                    textField.textColor = UIColor.green
+                }
+                //Present the AlertController
+            present(alertController, animated: true, completion: nil)
+        }
         
 //        print(indexPath.row)
     }
