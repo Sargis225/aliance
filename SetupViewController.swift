@@ -31,12 +31,13 @@ class SetupViewController: UIViewController, UITableViewDataSource, UITableViewD
         if indexPath.section == 2 {
             cell.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
             if indexPath.row == 1 {
-                let slider = UISlider(frame: CGRect(x: 10, y: 8, width: cell.frame.width - 80, height: 20))
+                let slider = UISlider(frame: CGRect(x: 10, y: 18, width: cell.frame.width - 80, height: 20))
                 slider.maximumValue = 100
                 slider.minimumValue = 30
                 slider.value = 60
                 cell.textLabel?.textAlignment = .right
-//                cell.textLabel?.text = String(Int(slider.value))
+//              cell.textLabel?.text = String(Int(slider.value))
+                
                 slider.addTarget(self, action: #selector(changeTime), for: .valueChanged)
                 cell.addSubview(slider)
                 
@@ -48,7 +49,7 @@ class SetupViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     @objc func changeTime (_ sender:UISlider) {
         
-        let timeLabel = UILabel(frame: CGRect(x: sender.frame.origin.x + sender.frame.width + 8, y: sender.frame.origin.y * 49 , width: 30, height: 30))
+        let timeLabel = UILabel(frame: CGRect(x: sender.frame.origin.x + sender.frame.width + 15, y: sender.frame.height * 20 , width: 30, height: 30))
         timeLabel.layer.cornerRadius = 10
         timeLabel.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         let value:Int = Int(sender.value)
