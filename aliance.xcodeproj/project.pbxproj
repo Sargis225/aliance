@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		526EF61325AF00FF00EA477A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526EF61225AF00FF00EA477A /* GameViewController.swift */; };
+		526EF61825AF08CE00EA477A /* NamesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526EF61725AF08CE00EA477A /* NamesTableViewCell.swift */; };
 		52C59C3325AA01FE00F39A11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C59C3225AA01FE00F39A11 /* AppDelegate.swift */; };
 		52C59C3525AA01FE00F39A11 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C59C3425AA01FE00F39A11 /* SceneDelegate.swift */; };
 		52C59C3725AA01FE00F39A11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C59C3625AA01FE00F39A11 /* ViewController.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		526EF61225AF00FF00EA477A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		526EF61725AF08CE00EA477A /* NamesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesTableViewCell.swift; sourceTree = "<group>"; };
 		52C59C2F25AA01FE00F39A11 /* aliance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aliance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C59C3225AA01FE00F39A11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52C59C3425AA01FE00F39A11 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +89,8 @@
 		52C59C2625AA01FE00F39A11 = {
 			isa = PBXGroup;
 			children = (
+				526EF61725AF08CE00EA477A /* NamesTableViewCell.swift */,
+				526EF61225AF00FF00EA477A /* GameViewController.swift */,
 				52C59C6A25AA20F000F39A11 /* SetupViewController.swift */,
 				52C59C6F25AA474D00F39A11 /* MyTableViewCell.swift */,
 				52C59C3125AA01FE00F39A11 /* aliance */,
@@ -267,7 +273,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				526EF61325AF00FF00EA477A /* GameViewController.swift in Sources */,
 				52C59C3725AA01FE00F39A11 /* ViewController.swift in Sources */,
+				526EF61825AF08CE00EA477A /* NamesTableViewCell.swift in Sources */,
 				52C59C6625AA0B2B00F39A11 /* KhmberViewController.swift in Sources */,
 				52C59C3325AA01FE00F39A11 /* AppDelegate.swift in Sources */,
 				52C59C3525AA01FE00F39A11 /* SceneDelegate.swift in Sources */,

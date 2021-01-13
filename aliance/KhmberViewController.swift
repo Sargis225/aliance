@@ -67,6 +67,13 @@ class KhmberViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UserDefaults.standard.set(teamOne.titleLabel?.text,forKey: "teamOneNameKey")
+        UserDefaults.standard.set(teamTow.titleLabel?.text,forKey: "teamTowNameKey")
+
+//        print("03")
+    }
     
     @IBAction func teamPlusPressed(_ sender: UIButton) {
         if key >= 2 {
@@ -275,8 +282,8 @@ class KhmberViewController: UIViewController {
     
     @IBOutlet var startButton: UIButton!
     
-    @IBAction func startButtonPressed(_ sender: UIButton) {
-    }
+//    @IBAction func startButtonPressed(_ sender: UIButton) {
+//    }
     
     
     
