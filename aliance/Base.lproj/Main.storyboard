@@ -206,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xvw-88-tAl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1813.0434782608697" y="811.60714285714278"/>
+            <point key="canvasLocation" x="1813" y="842"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="J8F-nu-Stw">
@@ -222,7 +222,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BPi-0s-Gfd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2618" y="810"/>
+            <point key="canvasLocation" x="2707" y="842"/>
         </scene>
         <!--SETINGS-->
         <scene sceneID="UYL-cD-inu">
@@ -236,23 +236,9 @@
                                 <rect key="frame" x="20" y="137" width="374" height="639"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="Afi-vG-kbT">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="49"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ընտրեք Գույնը" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nkf-Vp-4py">
-                                            <rect key="frame" x="49" y="12" width="258" height="28"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" systemColor="systemGray2Color"/>
-                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellIdentifier" rowHeight="55" id="8nF-DT-PqA" customClass="MyTableViewCell" customModule="aliance" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="77" width="374" height="55"/>
+                                        <rect key="frame" x="0.0" y="28" width="374" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8nF-DT-PqA" id="8WS-J7-Gvz">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="55"/>
@@ -276,13 +262,42 @@
                     <navigationItem key="navigationItem" title="SETINGS" id="bFk-MP-nP3"/>
                     <connections>
                         <outlet property="allAnkapLable" destination="Jri-sF-8L3" id="ISm-JP-DUh"/>
-                        <outlet property="selectColorLabel" destination="Nkf-Vp-4py" id="VRf-Pc-dZb"/>
                         <outlet property="setupTableView" destination="Qta-NC-jcA" id="AWE-T1-D6H"/>
+                        <segue destination="fyQ-hU-cMJ" kind="show" identifier="colorsIdent" id="shP-6A-LVt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xA8-b4-r7Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1781.1594202898552" y="75.669642857142847"/>
+        </scene>
+        <!--Colors Table View Controller-->
+        <scene sceneID="NMC-Gd-GVh">
+            <objects>
+                <tableViewController id="fyQ-hU-cMJ" customClass="ColorsTableViewController" customModule="aliance" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zai-UJ-N8O">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="colorsCellIdent" id="C6S-Fd-FHF">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C6S-Fd-FHF" id="yCL-K9-aNw">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fyQ-hU-cMJ" id="3fP-Za-1Tx"/>
+                            <outlet property="delegate" destination="fyQ-hU-cMJ" id="YCF-Nn-XS2"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="mvm-dD-TWL"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VhH-ot-mf7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2694" y="56"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Z4f-3C-iAG">
@@ -308,9 +323,6 @@
         <image name="unnamed" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
