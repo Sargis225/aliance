@@ -31,20 +31,18 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     
-//    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-//
-//        return [0,2]
-//    }
-    var a = 0
+
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-//        tableView.reloadRows(at: [indexPath], with: .none)
-        print(indexPath)
-       a = a + 1
-        if a == 6  {
+        var allSelected = true
+        tableView.visibleCells.forEach { cell in
+            if cell.isSelected == false {
+                allSelected = false
+            }
+        }
+        if allSelected == true {
             namesTableView.reloadData()
-            a = 0
+
         }
     }
     
@@ -56,8 +54,8 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("ii")
-        if let color = UserDefaults.standard.colorForKey(key: "colorKey") {
+        title = ""
+        if let color = UserDefaults.standard.colorForKey(key: "colorsKey") {
             self.view.backgroundColor = color
             namesTableView.backgroundColor = color
         }

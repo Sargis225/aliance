@@ -21,6 +21,7 @@
 		52C59C6625AA0B2B00F39A11 /* KhmberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C59C6525AA0B2B00F39A11 /* KhmberViewController.swift */; };
 		52C59C6B25AA20F000F39A11 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C59C6A25AA20F000F39A11 /* SetupViewController.swift */; };
 		52C59C7025AA474D00F39A11 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C59C6F25AA474D00F39A11 /* MyTableViewCell.swift */; };
+		52DF7B9625B0D4770054FCD7 /* ErkrordMyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF7B9525B0D4770054FCD7 /* ErkrordMyTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		52C59C6525AA0B2B00F39A11 /* KhmberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KhmberViewController.swift; sourceTree = "<group>"; };
 		52C59C6A25AA20F000F39A11 /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		52C59C6F25AA474D00F39A11 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
+		52DF7B9525B0D4770054FCD7 /* ErkrordMyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErkrordMyTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				52C59C3425AA01FE00F39A11 /* SceneDelegate.swift */,
 				52C59C3625AA01FE00F39A11 /* ViewController.swift */,
 				52C59C3825AA01FE00F39A11 /* Main.storyboard */,
+				52DF7B9525B0D4770054FCD7 /* ErkrordMyTableViewCell.swift */,
 				52C59C6525AA0B2B00F39A11 /* KhmberViewController.swift */,
 				52C59C3B25AA01FF00F39A11 /* Assets.xcassets */,
 				52C59C3D25AA01FF00F39A11 /* LaunchScreen.storyboard */,
@@ -285,6 +288,7 @@
 				52C59C6B25AA20F000F39A11 /* SetupViewController.swift in Sources */,
 				52C59C7025AA474D00F39A11 /* MyTableViewCell.swift in Sources */,
 				523D6EFC25B07F2100B52D15 /* ColorsTableViewController.swift in Sources */,
+				52DF7B9625B0D4770054FCD7 /* ErkrordMyTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

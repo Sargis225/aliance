@@ -25,6 +25,11 @@ class KhmberViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let langueage = UserDefaults.standard.string(forKey: "languageKey")
+        if let color = UserDefaults.standard.colorForKey(key: "colorsKey") {
+            self.view.backgroundColor = color
+        }
+        teamOne.titleLabel?.adjustsFontSizeToFitWidth = true
+        teamTow.titleLabel?.adjustsFontSizeToFitWidth = true
         switch langueage {
         case "Հայերեն":
             teamOne.setTitle("Թիմ 1", for: .normal)
@@ -92,6 +97,7 @@ class KhmberViewController: UIViewController {
         newTeam.titleLabel?.textColor = #colorLiteral(red: 1, green: 0.7956949813, blue: 0.1120238328, alpha: 1)
         newTeam.titleLabel?.attributedText?.size()
         newTeam.layer.cornerRadius = 20
+        newTeam.titleLabel?.adjustsFontSizeToFitWidth = true
         view.addSubview(newTeam)
         newTeam.addTarget(nil, action: #selector(newTeamThreeFore), for: .touchUpInside)
         teamArray.append(newTeam)

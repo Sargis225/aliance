@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let color = UserDefaults.standard.colorForKey(key: "colorKey") {
+        if let color = UserDefaults.standard.colorForKey(key: "colorsKey") {
             self.view.backgroundColor = color
         }
         
@@ -25,12 +25,9 @@ class ViewController: UIViewController {
         switch langueage {
         case "Հայերեն":
             playButton.setTitle("Խաղալ", for: .normal)
-            setupButton.setTitle("Կարգավորումներ", for: .normal)
         case "English":
-            setupButton.setTitle("Settings", for: .normal)
             playButton.setTitle("Play", for: .normal)
         case "Русский":
-            setupButton.setTitle("Настройки", for: .normal)
             playButton.setTitle("Играть", for: .normal)
         default:
             print("ok")
