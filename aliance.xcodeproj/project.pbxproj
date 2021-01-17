@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5227DBEE25B463E300A5D76E /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5227DBED25B463E300A5D76E /* ResultViewController.swift */; };
 		523D6EFC25B07F2100B52D15 /* ColorsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523D6EFB25B07F2100B52D15 /* ColorsTableViewController.swift */; };
 		526EF61325AF00FF00EA477A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526EF61225AF00FF00EA477A /* GameViewController.swift */; };
 		526EF61825AF08CE00EA477A /* NamesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526EF61725AF08CE00EA477A /* NamesTableViewCell.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5227DBED25B463E300A5D76E /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		523D6EFB25B07F2100B52D15 /* ColorsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsTableViewController.swift; sourceTree = "<group>"; };
 		526EF61225AF00FF00EA477A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		526EF61725AF08CE00EA477A /* NamesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesTableViewCell.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 		52C59C2625AA01FE00F39A11 = {
 			isa = PBXGroup;
 			children = (
+				5227DBED25B463E300A5D76E /* ResultViewController.swift */,
 				523D6EFB25B07F2100B52D15 /* ColorsTableViewController.swift */,
 				526EF61725AF08CE00EA477A /* NamesTableViewCell.swift */,
 				526EF61225AF00FF00EA477A /* GameViewController.swift */,
@@ -289,6 +292,7 @@
 				52C59C7025AA474D00F39A11 /* MyTableViewCell.swift in Sources */,
 				523D6EFC25B07F2100B52D15 /* ColorsTableViewController.swift in Sources */,
 				52DF7B9625B0D4770054FCD7 /* ErkrordMyTableViewCell.swift in Sources */,
+				5227DBEE25B463E300A5D76E /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
