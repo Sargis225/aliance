@@ -28,7 +28,7 @@
                                 <state key="normal" title="Խաղալ"/>
                                 <connections>
                                     <action selector="playButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lv6-10-qcy"/>
-                                    <segue destination="tf9-iO-3dB" kind="show" id="q1s-hF-iUF"/>
+                                    <segue destination="kmi-Nf-Thq" kind="show" id="Hxr-Rj-aYJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxs-aC-oUc">
@@ -153,7 +153,91 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dhs-fQ-DdK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="879.71014492753625" y="842.41071428571422"/>
+            <point key="canvasLocation" x="880" y="863"/>
+        </scene>
+        <!--Crew View Controller-->
+        <scene sceneID="AbD-WW-jg9">
+            <objects>
+                <viewController id="kmi-Nf-Thq" customClass="CrewViewController" customModule="aliance" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1vP-lE-Lk2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ml-UF-iiE">
+                                <rect key="frame" x="174" y="429" width="68" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <segue destination="XmH-rZ-pTH" kind="show" id="zaP-TV-7Vu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pzt-z6-yGa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="NmV-Oe-9sF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zyb-a0-Lyk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="879.71014492753625" y="-636.16071428571422"/>
+        </scene>
+        <!--Game Play View Controller-->
+        <scene sceneID="uSg-a7-OrB">
+            <objects>
+                <viewController id="XmH-rZ-pTH" customClass="GamePlayViewController" customModule="aliance" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QDc-En-Der">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sTk-es-6t9">
+                                <rect key="frame" x="140" y="506" width="135" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Sharunakel"/>
+                                <connections>
+                                    <segue destination="cYw-mK-vV6" kind="show" identifier="startGame" id="De2-GQ-OXW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="URu-z6-4u8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rXE-nc-Shj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bTT-j6-CWi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1781" y="-636"/>
+        </scene>
+        <!--Current Game View Controller-->
+        <scene sceneID="UHv-y9-Ep0">
+            <objects>
+                <viewController id="cYw-mK-vV6" customClass="CurrentGameViewController" customModule="aliance" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SWJ-U4-jjD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2p-RH-IAf">
+                                <rect key="frame" x="177" y="420.5" width="60" height="55"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <state key="normal" title="End"/>
+                                <connections>
+                                    <action selector="endButtonPressed:" destination="cYw-mK-vV6" eventType="touchUpInside" id="hZ0-Sz-DN3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HtC-TV-J5h"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="r2p-RH-IAf" firstAttribute="centerX" secondItem="SWJ-U4-jjD" secondAttribute="centerX" id="EKq-dV-Egp"/>
+                            <constraint firstItem="r2p-RH-IAf" firstAttribute="centerY" secondItem="SWJ-U4-jjD" secondAttribute="centerY" id="Pma-wt-GQA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="T38-jV-6bi"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fT2-10-W48" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2670" y="-636"/>
         </scene>
         <!--Title-->
         <scene sceneID="g5J-h8-tw9">
@@ -216,7 +300,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xvw-88-tAl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1811.594202898551" y="841.74107142857144"/>
+            <point key="canvasLocation" x="1812" y="863"/>
         </scene>
         <!--Title-->
         <scene sceneID="J8F-nu-Stw">
@@ -263,8 +347,7 @@
                                     <color key="titleColor" systemColor="systemYellowColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="continueButtonPressed:" destination="xV3-vb-2U1" eventType="touchUpInside" id="ddd-jk-yTr"/>
-                                    <segue destination="LcU-Ep-8dW" kind="show" identifier="continiueIdent" destinationCreationSelector="continueButtonPressed" id="o6q-2s-KoO"/>
+                                    <action selector="continueButtonPressed:" destination="xV3-vb-2U1" eventType="touchUpInside" id="1Pn-wz-a8h"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -288,7 +371,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BPi-0s-Gfd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2894" y="811"/>
+            <point key="canvasLocation" x="2951" y="863"/>
         </scene>
         <!--SETINGS-->
         <scene sceneID="UYL-cD-inu">
@@ -433,9 +516,6 @@
             <point key="canvasLocation" x="-30.434782608695656" y="75.669642857142847"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="o6q-2s-KoO"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="globe" catalog="system" width="128" height="121"/>

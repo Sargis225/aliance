@@ -50,6 +50,7 @@ class ResultViewController: UIViewController {
     }
     
     @IBAction func continueButtonPressed(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
         
     }
     override func viewWillDisappear(_ animated: Bool) {

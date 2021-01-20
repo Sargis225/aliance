@@ -23,6 +23,9 @@
 		52C59C6B25AA20F000F39A11 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C59C6A25AA20F000F39A11 /* SetupViewController.swift */; };
 		52C59C7025AA474D00F39A11 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C59C6F25AA474D00F39A11 /* MyTableViewCell.swift */; };
 		52DF7B9625B0D4770054FCD7 /* ErkrordMyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF7B9525B0D4770054FCD7 /* ErkrordMyTableViewCell.swift */; };
+		87013A6A25B87EE7000A3DB6 /* CrewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87013A6925B87EE7000A3DB6 /* CrewViewController.swift */; };
+		87013A6F25B87FA4000A3DB6 /* GamePlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87013A6E25B87FA4000A3DB6 /* GamePlayViewController.swift */; };
+		87013A7425B88009000A3DB6 /* CurrentGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87013A7325B88009000A3DB6 /* CurrentGameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,9 @@
 		52C59C6A25AA20F000F39A11 /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		52C59C6F25AA474D00F39A11 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		52DF7B9525B0D4770054FCD7 /* ErkrordMyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErkrordMyTableViewCell.swift; sourceTree = "<group>"; };
+		87013A6925B87EE7000A3DB6 /* CrewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewViewController.swift; sourceTree = "<group>"; };
+		87013A6E25B87FA4000A3DB6 /* GamePlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlayViewController.swift; sourceTree = "<group>"; };
+		87013A7325B88009000A3DB6 /* CurrentGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentGameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +133,9 @@
 				52C59C3825AA01FE00F39A11 /* Main.storyboard */,
 				52DF7B9525B0D4770054FCD7 /* ErkrordMyTableViewCell.swift */,
 				52C59C6525AA0B2B00F39A11 /* KhmberViewController.swift */,
+				87013A6925B87EE7000A3DB6 /* CrewViewController.swift */,
+				87013A6E25B87FA4000A3DB6 /* GamePlayViewController.swift */,
+				87013A7325B88009000A3DB6 /* CurrentGameViewController.swift */,
 				52C59C3B25AA01FF00F39A11 /* Assets.xcassets */,
 				52C59C3D25AA01FF00F39A11 /* LaunchScreen.storyboard */,
 				52C59C4025AA01FF00F39A11 /* Info.plist */,
@@ -283,12 +292,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				526EF61325AF00FF00EA477A /* GameViewController.swift in Sources */,
+				87013A7425B88009000A3DB6 /* CurrentGameViewController.swift in Sources */,
 				52C59C3725AA01FE00F39A11 /* ViewController.swift in Sources */,
 				526EF61825AF08CE00EA477A /* NamesTableViewCell.swift in Sources */,
 				52C59C6625AA0B2B00F39A11 /* KhmberViewController.swift in Sources */,
 				52C59C3325AA01FE00F39A11 /* AppDelegate.swift in Sources */,
 				52C59C3525AA01FE00F39A11 /* SceneDelegate.swift in Sources */,
+				87013A6F25B87FA4000A3DB6 /* GamePlayViewController.swift in Sources */,
 				52C59C6B25AA20F000F39A11 /* SetupViewController.swift in Sources */,
+				87013A6A25B87EE7000A3DB6 /* CrewViewController.swift in Sources */,
 				52C59C7025AA474D00F39A11 /* MyTableViewCell.swift in Sources */,
 				523D6EFC25B07F2100B52D15 /* ColorsTableViewController.swift in Sources */,
 				52DF7B9625B0D4770054FCD7 /* ErkrordMyTableViewCell.swift in Sources */,
