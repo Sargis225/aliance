@@ -14,7 +14,24 @@ class ResultViewController: UIViewController {
     @IBOutlet var teamThirdLabel: UILabel!
     @IBOutlet var teamFourthLabel: UILabel!
     @IBOutlet var continueButton: UIButton!
+    
     var predectedAnswer = ""
+    
+    @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
+        print("backButtonPressed ")
+//        self.navigationController?.popToRootViewController(animated: true)
+        if let controllers = self.navigationController?.viewControllers {
+            for vc in controllers {
+                if ((vc as? KhmberViewController) != nil)  {
+                    self.navigationController?.popToViewController(vc, animated: true)
+                    return
+                }
+            }
+        }
+        
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         continueButton.layer.cornerRadius = 20

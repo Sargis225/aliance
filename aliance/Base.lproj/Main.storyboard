@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nWm-a0-ia5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nWm-a0-ia5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -218,7 +218,7 @@
             </objects>
             <point key="canvasLocation" x="1811.594202898551" y="841.74107142857144"/>
         </scene>
-        <!--Result View Controller-->
+        <!--Title-->
         <scene sceneID="J8F-nu-Stw">
             <objects>
                 <viewController id="xV3-vb-2U1" customClass="ResultViewController" customModule="aliance" customModuleProvider="target" sceneMemberID="viewController">
@@ -271,7 +271,13 @@
                         <viewLayoutGuide key="safeArea" id="5aF-gn-AY0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="K9I-bG-qj7"/>
+                    <navigationItem key="navigationItem" title="Title" id="uU2-8M-dr6">
+                        <barButtonItem key="leftBarButtonItem" title="&lt; back" id="4bj-SL-8AC">
+                            <connections>
+                                <action selector="backButtonPressed:" destination="xV3-vb-2U1" id="ZcX-Di-D3E"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="continueButton" destination="e6l-Z8-R7K" id="NVJ-nS-wVa"/>
                         <outlet property="teamFourthLabel" destination="Kn4-As-NXA" id="yEL-Qr-hpE"/>
@@ -282,7 +288,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BPi-0s-Gfd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2770" y="842"/>
+            <point key="canvasLocation" x="2894" y="811"/>
         </scene>
         <!--SETINGS-->
         <scene sceneID="UYL-cD-inu">
