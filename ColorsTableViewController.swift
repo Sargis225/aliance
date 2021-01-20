@@ -11,11 +11,10 @@ class ColorsTableViewController: UITableViewController {
     var settings:Setting!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        if let color = UserDefaults.standard.colorForKey(key: "colorsKey") {
-//            self.view.backgroundColor = color
-//        }
+        
         view.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         tableView.layer.cornerRadius = 20
+        tableView.tableFooterView = UIView()
     }
 
     // MARK: - Table view data source

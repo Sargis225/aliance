@@ -128,7 +128,7 @@ class KhmberViewController: UIViewController {
         
         let newTeam = UIButton(frame: CGRect(x: teamTow.frame.origin.x, y: teamTow.frame.origin.y + teamTow.frame.height + distance, width: teamTow.frame.width, height: teamTow.frame.height))
         newTeam.backgroundColor = #colorLiteral(red: 0.2354210162, green: 0.5536059394, blue: 1, alpha: 1)
-        newTeam.titleLabel?.font = (UIFont.boldSystemFont(ofSize: 30))
+        newTeam.titleLabel?.font = (UIFont.boldSystemFont(ofSize: 42))
         newTeam.setTitle(teamThirdName, for:.normal)
         newTeam.titleLabel?.textAlignment = .center
         newTeam.setTitleColor(#colorLiteral(red: 1, green: 0.7956949813, blue: 0.1120238328, alpha: 1), for: .normal)

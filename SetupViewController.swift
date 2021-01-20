@@ -24,6 +24,7 @@ class SetupViewController: UIViewController, UITableViewDataSource, UITableViewD
         setupTableView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         setupTableView.dataSource = self
         setupTableView.delegate = self
+        setupTableView.tableFooterView = UIView()
         // Do any additional setup after loading the view.
     }
     
