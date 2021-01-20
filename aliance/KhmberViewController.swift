@@ -32,6 +32,7 @@ class KhmberViewController: UIViewController {
     var massage = ""
     var buttonCancelText = ""
     var buttonRenameText = ""
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let color = UserDefaults.standard.colorForKey(key: "colorsKey") {
@@ -42,19 +43,7 @@ class KhmberViewController: UIViewController {
         
         let langueage = UserDefaults.standard.string(forKey: "languageKey")
         switch langueage {
-        case "Հայերեն":
-            teamOneName = "Թիմ 1"
-            teamTwoName = "Թիմ 2"
-            teamThirdName = "Թիմ 3"
-            teamFourthName = "Թիմ 4"
-            startButtonName = "Սկսել"
-            gameTime = "Խաղի ժամանակը"
-            maximumPoints = "Առավելագույն միավորը"
-            second = "վարկյան"
-            team = "Խմբեր"
-            massage = "Փոխել թմի անունը"
-            buttonCancelText = "Չեղարկել"
-            buttonRenameText = "Փոխել"
+
         case "English":
             teamOneName = "Group 1"
             teamTwoName = "Group 2"
@@ -82,6 +71,18 @@ class KhmberViewController: UIViewController {
             buttonCancelText = "Отменить"
             buttonRenameText = "Изменить"
         default:
+            teamOneName = "Թիմ 1"
+            teamTwoName = "Թիմ 2"
+            teamThirdName = "Թիմ 3"
+            teamFourthName = "Թիմ 4"
+            startButtonName = "Սկսել"
+            gameTime = "Խաղի ժամանակը"
+            maximumPoints = "Առավելագույն միավորը"
+            second = "վարկյան"
+            team = "Խմբեր"
+            massage = "Փոխել թմի անունը"
+            buttonCancelText = "Չեղարկել"
+            buttonRenameText = "Փոխել"
             print("ok")
         }
         teamOne.setTitle(teamOneName, for: .normal)
