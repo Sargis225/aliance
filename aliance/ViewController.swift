@@ -16,21 +16,19 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         if let color = UserDefaults.standard.colorForKey(key: "colorsKey") {
             self.view.backgroundColor = color
         }
         
         let langueage = UserDefaults.standard.string(forKey: "languageKey")
         switch langueage {
-        case "Հայերեն":
-            playButton.setTitle("Խաղալ", for: .normal)
         case "English":
             playButton.setTitle("Play", for: .normal)
         case "Русский":
             playButton.setTitle("Играть", for: .normal)
         default:
-            print("ok")
+            playButton.setTitle("Խաղալ", for: .normal)
         }
 
     }

@@ -32,7 +32,7 @@ class KhmberViewController: UIViewController {
     var massage = ""
     var buttonCancelText = ""
     var buttonRenameText = ""
-    
+    var crews:[String] = []
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let color = UserDefaults.standard.colorForKey(key: "colorsKey") {
@@ -83,17 +83,30 @@ class KhmberViewController: UIViewController {
             massage = "Փոխել թմի անունը"
             buttonCancelText = "Չեղարկել"
             buttonRenameText = "Փոխել"
-            print("ok")
         }
         teamOne.setTitle(teamOneName, for: .normal)
         teamTow.setTitle(teamTwoName, for: .normal)
         startButton.setTitle(startButtonName, for: .normal)
         teamsLabel.text = team
-        gameTimeLabel.text = "\(gameTime) \(UserDefaults.standard.string(forKey: "timeIntervalKey") ?? "") \(second)"
-        gameMaximumPointsLabel.text = "\(maximumPoints) \(UserDefaults.standard.string(forKey: "maximumPointsKey") ?? "") "
+        var timeInterval = UserDefaults.standard.string(forKey: "timeIntervalKey") ?? ""
+        
+        if timeInterval == "" {
+            timeInterval = "60"
+        }
+        print(timeInterval)
+        var maximumPointsS = UserDefaults.standard.string(forKey: "maximumPointsKey") ?? ""
+        if maximumPointsS == "" {
+            maximumPointsS = "40"
+        }
+        print(maximumPointsS)
+        gameTimeLabel.text = "\(gameTime) \(timeInterval) \(second)"
+        gameMaximumPointsLabel.text = "\(maximumPoints) \(maximumPointsS) "
+        crews.append(teamOne.titleLabel?.text ?? "")
+        crews.append(teamTow.titleLabel?.text ?? "")
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         teamOne.layer.cornerRadius = 20
         teamTow.layer.cornerRadius = 20
         teamPlus.layer.cornerRadius = 10
@@ -107,15 +120,7 @@ class KhmberViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        UserDefaults.standard.set(teamOne.titleLabel?.text,forKey: "teamOneNameKey")
-        UserDefaults.standard.set(teamTow.titleLabel?.text,forKey: "teamTowNameKey")
-        if teamArray.count == 1 {
-            UserDefaults.standard.set(teamArray[0].titleLabel?.text ?? "",forKey: "teamThirdNameKey")
-        }
-        if teamArray.count == 2 {
-            UserDefaults.standard.set(teamArray[0].titleLabel?.text ?? "",forKey: "teamThirdNameKey")
-            UserDefaults.standard.set(teamArray[1].titleLabel?.text ?? "",forKey: "teamFourthNameKey")
-        }
+        crews.removeAll()
 
         
     }
@@ -124,9 +129,7 @@ class KhmberViewController: UIViewController {
         if key >= 2 {
             return
         }
-        
-        // #TODO: harcnem vonc anem vor keyov chanem urish tarberak el klini
-        
+                
         let newTeam = UIButton(frame: CGRect(x: teamTow.frame.origin.x, y: teamTow.frame.origin.y + teamTow.frame.height + distance, width: teamTow.frame.width, height: teamTow.frame.height))
         newTeam.backgroundColor = #colorLiteral(red: 0.2354210162, green: 0.5536059394, blue: 1, alpha: 1)
         newTeam.titleLabel?.font = (UIFont.boldSystemFont(ofSize: 42))
@@ -140,6 +143,11 @@ class KhmberViewController: UIViewController {
         view.addSubview(newTeam)
         newTeam.addTarget(nil, action: #selector(newTeamThreeFore), for: .touchUpInside)
         teamArray.append(newTeam)
+        if key == 0 {
+            crews.append(newTeam.titleLabel?.text ?? "")
+        }
+        
+       
         let deleteTeamButton = UIButton(frame: CGRect(x: newTeam.frame.origin.x + newTeam.frame.width + 10, y: newTeam.frame.origin.y, width: 40, height: 40))
         deleteTeamButton.backgroundColor = #colorLiteral(red: 1, green: 0.1945014842, blue: 0.005726532741, alpha: 1)
         deleteTeamButton.layer.cornerRadius = 10
@@ -155,7 +163,12 @@ class KhmberViewController: UIViewController {
         if key == 2 {
             newTeam.titleLabel?.font = (UIFont.boldSystemFont(ofSize: 42))
             newTeam.setTitle(teamFourthName, for:.normal)
+            crews.append(newTeam.titleLabel?.text ?? "")
+
         }
+        print(crews)
+        print(distance)
+        print(key)
     }
     
     func back(num:Int,array:[UIButton]) {
@@ -165,8 +178,8 @@ class KhmberViewController: UIViewController {
         var tvyalnNumY = merCankacacButton.frame.origin.y
         
         // poxum enq ayd Y - @
-        tvyalnNumY = merCankacacButton.frame.origin.y - merCankacacButton.frame.height - distance
-         
+        tvyalnNumY = merCankacacButton.frame.origin.y - merCankacacButton.frame.height - 10
+         distance = 83
         // poxvac y@  dnum enq chapseri mej
         UIView.animate(withDuration: 0.5 ) {
             merCankacacButton.frame.origin.y = tvyalnNumY
@@ -178,6 +191,8 @@ class KhmberViewController: UIViewController {
         let tvyalEllement = deleteTeamButtonArrray.firstIndex(of: sender)!
         key -= 1
         distance = 10
+        crews.removeLast()
+        print(crews)
         if Int(tvyalEllement) == (teamArray.count - 1) {
             teamArray.remove(at: tvyalEllement).removeFromSuperview()
             deleteTeamButtonArrray.remove(at: tvyalEllement).removeFromSuperview()
@@ -185,7 +200,6 @@ class KhmberViewController: UIViewController {
         }
         teamArray.remove(at: tvyalEllement).removeFromSuperview()
         deleteTeamButtonArrray.remove(at: tvyalEllement).removeFromSuperview()
-        
         if teamArray.count > 0 {
             for viewNextEllements in Int(tvyalEllement) ... (teamArray.count - 1 ) {
                 back(num: viewNextEllements, array: teamArray)
@@ -193,20 +207,29 @@ class KhmberViewController: UIViewController {
                 teamArray[viewNextEllements].setTitle(teamThirdName, for: .normal)
             }
         }
+        
+        
     }
     
     @objc func newTeamThreeFore(_ sender:UIButton) {
         addAlertController(button: sender)
+
     }
+    
     func addAlertController(button:UIButton!) {
         let alertController: UIAlertController = UIAlertController(title: massage, message: "", preferredStyle: .alert)
         let cancelAction: UIAlertAction = UIAlertAction(title: buttonCancelText, style: .cancel) { action -> Void in
-                //cancel code
             }
         alertController.addAction(cancelAction)
         let nextAction: UIAlertAction = UIAlertAction(title: buttonRenameText, style: .default) { action -> Void in
             let text = (alertController.textFields?.first as! UITextField).text
             button.setTitle(text, for: .normal)
+            for i in 0 ... self.crews.count - 1 {
+                if button.titleLabel?.text  == self.crews[i] {
+                    self.crews[i] = text ?? ""
+                }
+            }
+            print(self.crews)
             }
         alertController.addAction(nextAction)
             //Add text field
@@ -234,7 +257,11 @@ class KhmberViewController: UIViewController {
 //    }
     
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ResultViewController {
+            vc.crews = crews
+        }
+    }
     
     /*
     // MARK: - Navigation
@@ -246,4 +273,10 @@ class KhmberViewController: UIViewController {
     }
     */
 
+}
+extension UIButton {
+    var titlname: String {
+        let name = self.titleLabel?.text ?? ""
+        return name
+    }
 }

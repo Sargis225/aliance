@@ -21,7 +21,9 @@ class SetupViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        if let color = UserDefaults.standard.colorForKey(key: "colorsKey") {
+            setupTableView.backgroundColor = color
+        }
         setupTableView.dataSource = self
         setupTableView.delegate = self
         setupTableView.tableFooterView = UIView()
@@ -36,32 +38,36 @@ class SetupViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
         let langueage = UserDefaults.standard.string(forKey: "languageKey")
         switch langueage {
-        case "Հայերեն":
-            selectColor = "Ընտրեք ետնագույնը"
-            selectLanguage = "Ընտրեք Լեզուն"
-            selectGameTime =  "Ընտրեք ժամանակը"
         case "English":
             selectColor = "Select background color"
             selectLanguage = "Select language"
             selectGameTime =  "Select game time"
+            selectMaxPoint = "Select the maximum score"
         case "Русский":
             selectColor = "Выбирайте цвет"
             selectLanguage = "Выбирайте язык"
             selectGameTime = "Выбирайте время игры"
+            selectMaxPoint = "Выбирайте победные очки"
         default:
-            print("ok")
+            selectColor = "Ընտրեք ետնագույնը"
+            selectLanguage = "Ընտրեք Լեզուն"
+            selectGameTime =  "Ընտրեք խաղի ժամանակը"
+            selectMaxPoint = "Ընտրեք առավելագույն միավորը"
         }
         setupTableView.reloadData()
         
     }
     
     
-    var selectColor = "Select background color"
-    var selectLanguage = "Select language"
-    var selectGameTime = "Select game time"
+    var selectColor = ""
+    var selectLanguage = ""
+    var selectGameTime = ""
+    var selectMaxPoint = ""
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let ident = "cellIdentifier"
         let cell = tableView.dequeueReusableCell(withIdentifier: ident) as! MyTableViewCell
+        cell.layer.cornerRadius = 20
+        cell.textLabel?.adjustsFontSizeToFitWidth = true
         cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 22)
         if let color = UserDefaults.standard.colorForKey(key: "colorsKey") {
             cell.backgroundColor = color
@@ -72,14 +78,12 @@ class SetupViewController: UIViewController, UITableViewDataSource, UITableViewD
         if indexPath.section == 0 && indexPath.row == 0 {
             let langueage = UserDefaults.standard.string(forKey: "languageKey")
             switch langueage {
-            case "Հայերեն":
-                cell.selectedLanguage.text = "Հայերեն"
             case "English":
                 cell.selectedLanguage.text = "English"
             case "Русский":
                 cell.selectedLanguage.text = "Русский"
             default:
-                print("ok")
+                cell.selectedLanguage.text = "Հայերեն"
             }
             cell.paintImageView?.isHidden = true
             cell.selectedLanguage.isHidden = false
@@ -93,6 +97,14 @@ class SetupViewController: UIViewController, UITableViewDataSource, UITableViewD
         if indexPath.section == 1 {
             let identTwo = "twoCellIdentifier"
             let cellTwo = tableView.dequeueReusableCell(withIdentifier: identTwo) as! ErkrordMyTableViewCell
+            cellTwo.layer.cornerRadius = 20
+            cellTwo.textLabel?.adjustsFontSizeToFitWidth = true
+            cellTwo.hidden()
+            cellTwo.hideLabel()
+
+            if let color = UserDefaults.standard.colorForKey(key: "colorsKey") {
+                cellTwo.backgroundColor = color
+            }
             cellTwo.textLabel?.font = UIFont.boldSystemFont(ofSize: 22)
             cellTwo.textLabel?.textAlignment = .center
             if let color = UserDefaults.standard.colorForKey(key: "colorsKey") {
@@ -100,7 +112,12 @@ class SetupViewController: UIViewController, UITableViewDataSource, UITableViewD
                 cellTwo.hidden()
                 cellTwo.hideLabel()
             }
-            cellTwo.textLabel?.text = selectGameTime
+            if indexPath.row == 0 {
+                cellTwo.textLabel?.text = selectGameTime
+            }
+            if indexPath.row == 1 {
+                cellTwo.textLabel?.text = selectMaxPoint
+            }
             return cellTwo
         }
        return cell
@@ -109,6 +126,7 @@ class SetupViewController: UIViewController, UITableViewDataSource, UITableViewD
     var setting:Setting!
     var settingsType = Setting.self
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         switch indexPath {
         case [0,1]:
             setting = settingsType.color
@@ -121,6 +139,7 @@ class SetupViewController: UIViewController, UITableViewDataSource, UITableViewD
             cell2.show()
             cell2.timeValueLabel.text = String(Int(cell2.slider.value))
             cell2.indexRow = 0
+            
             cell2.textLabel?.text = ""
         case [1,1]:
             let cell2 = tableView.cellForRow(at: indexPath) as! ErkrordMyTableViewCell
@@ -129,9 +148,16 @@ class SetupViewController: UIViewController, UITableViewDataSource, UITableViewD
             cell2.indexRow = 1
             cell2.textLabel?.text = ""
         default:
+//            let cell2 = tableView.cellForRow(at: indexPath) as! ErkrordMyTableViewCell
+//            cell2.hideLabel()
+//            cell2.hidden()
             print("ok")
         }
     }
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? ColorsTableViewController {

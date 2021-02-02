@@ -8,9 +8,6 @@
 import UIKit
 
 class MyTableViewCell: UITableViewCell {
-//    var imageViewGlobe:UIImageView?
-//    var imageGlobe:UIImage?
-    
     @IBOutlet var paintImageView: UIImageView!
     @IBOutlet var globeImageView: UIImageView!
     @IBOutlet var selectedLanguage: UILabel!

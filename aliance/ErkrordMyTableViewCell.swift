@@ -25,8 +25,7 @@ class ErkrordMyTableViewCell: UITableViewCell {
         slider.maximumValue = 100
         slider.minimumValue = 30
         slider.value = 60
-        
-        // Initialization code
+        slider.layer.cornerRadius = 20
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -37,11 +36,11 @@ class ErkrordMyTableViewCell: UITableViewCell {
     
     var indexRow = 0
     @IBAction func sliderActionPressed(_ sender: UISlider) {
-        
         if indexRow == 0 {
             timeValueLabel.text = String(Int(sender.value))
             UserDefaults.standard.set(timeValueLabel.text ?? "",forKey: "timeIntervalKey")
-        }else {
+        }
+        else {
             pointsValueLabel.text = String(Int(sender.value))
             UserDefaults.standard.set(pointsValueLabel.text ?? "",forKey: "maximumPointsKey")
         }
@@ -59,7 +58,6 @@ class ErkrordMyTableViewCell: UITableViewCell {
     func show() {
         timeValueLabel.isHidden = false
         slider.isHidden = false
-        
     }
     
     func hidden() {
